@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOUM baguette</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="lang-selector">
+                <select id="languageSelect" class="language-select" aria-label="Taalkeuze">
+                    <option value="nl">NL</option>
+                    <option value="fr">FR</option>
+                    <option value="en">EN</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <h1>Welkom bij BOUM Baguette</h1>
+            <p>Dit is een volledig witte, minimalistische en reactieve site.</p>
+        </section>
+        <section id="menu">
+            <h2>Menu</h2>
+            <div class="simple-accordion">
+                <div class="acc-slide acc-starters" data-category="Starters">
+                    <div class="acc-label">Starters</div>
+                </div>
+                <div class="acc-slide acc-main" data-category="Main">
+                    <div class="acc-label">Main</div>
+                </div>
+                <div class="acc-slide acc-desserts" data-category="Desserts">
+                    <div class="acc-label">Desserts</div>
+                </div>
+                <div class="acc-slide acc-drinks" data-category="Drinks">
+                    <div class="acc-label">Drinks</div>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>Over deze website.</p>
+        </section>
+        <section id="faq">
+            <h2>FAQ</h2>
+            <p>Veelgestelde vragen.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form id="contactForm">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Bericht:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Verstuur</button>
+            </form>
+            <div id="formMessage"></div>
+        </section>
+    </main>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

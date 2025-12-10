@@ -1,0 +1,397 @@
+/* Home sectie achtergrondafbeelding */
+#home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    background: url('asstes/home_bg.jpg') no-repeat center center scroll;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0 calc(-50vw + 50%);
+    margin-top: 0;
+    padding: 0;
+    padding-top: 60px;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+    /* Zorg dat de inhoud altijd zichtbaar blijft */
+    overflow: hidden;
+}
+
+.home-zoom {
+    transform: scale(1.05);
+}
+body {
+    background: #fff;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative;
+}
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+nav {
+    background: rgba(255,255,255,0.7);
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.5em 0;
+    box-sizing: border-box;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15), 0 0 12px 2px #fff;
+    display: flex;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0.5em 2vw;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+}
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li:last-child {
+    margin-left: auto;
+}
+
+.lang-selector {
+    margin-left: auto !important;
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 101;
+    margin-top: 0;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #000;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+/* Taalkeuze styling */
+.language-select {
+    padding: 0.3em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    background: #fff url('asstes/language.png') no-repeat right 0.5em center;
+    background-size: 1.2em 1.2em;
+    color: #000;
+    padding-right: 2em;
+}
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em 0.2em;
+    transition: color 0.2s;
+}
+nav ul li a:hover {
+    color: #555;
+}
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+    section {
+        margin-bottom: 2em;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+/* Accordion Menu */
+.simple-accordion {
+    display: flex;
+    width: 100vw;
+    margin: 0 calc(-50vw + 50%);
+    height: 500px;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.acc-slide {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: flex 0.4s ease, filter 0.4s ease;
+    filter: grayscale(1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acc-slide:hover {
+    filter: grayscale(0);
+}
+
+.acc-slide.active {
+    flex: 3;
+    filter: grayscale(0);
+}
+
+.acc-label {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    transition: transform 0.4s ease, font-size 0.4s ease;
+}
+
+.acc-slide.active .acc-label {
+    transform: rotate(0deg);
+    font-size: 2em;
+}
+
+.acc-starters {
+    background-image: url('asstes/starters.jpg');
+}
+
+.acc-main {
+    background-image: url('asstes/main.jpg');
+}
+
+.acc-desserts {
+    background-image: url('asstes/Screenshot 2025-12-10 153357.png');
+}
+
+.acc-drinks {
+    background-image: url('asstes/drinks.jpg');
+}
+
+@media (max-width: 900px) {
+    .simple-accordion {
+        flex-direction: column;
+        height: 600px;
+    }
+    
+    .acc-slide {
+        flex: 1;
+    }
+    
+    .acc-slide.active {
+        flex: 2;
+    }
+    
+    .acc-label {
+        transform: rotate(0deg);
+        font-size: 1.2em;
+    }
+    
+    .acc-slide.active .acc-label {
+        font-size: 1.8em;
+    }
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+}
+input, textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background: #fff;
+    color: #000;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+button {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 0.7em 1.2em;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #333;
+}
+#formMessage {
+    margin-top: 1em;
+    font-weight: bold;
+}
+@media (max-width: 900px) {
+    nav {
+        padding: 1.2em 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.7);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.3s ease 0.3s, visibility 0s linear 0.6s;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+        padding-top: 4em;
+        z-index: 1000;
+        visibility: hidden;
+    }
+    
+    nav ul.active {
+        visibility: visible;
+        transition-delay: 0s, 0s;
+        top: 0;
+    }
+    
+    nav ul.closing {
+        visibility: visible;
+        top: 0;
+        transition: top 0.3s ease 0.3s, visibility 0s linear 0.6s;
+    }
+    
+    nav ul.active {
+        top: 0;
+    }
+    
+    nav ul li {
+        margin: 1em 0;
+        width: 80%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-100vh);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-100vh);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideUp {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-100vh);
+        }
+    }
+    
+    nav ul.active li {
+        animation: slideDown 0.5s ease forwards;
+    }
+    
+    nav ul.active li:nth-child(1) { animation-delay: 0.6s; }
+    nav ul.active li:nth-child(2) { animation-delay: 0.5s; }
+    nav ul.active li:nth-child(3) { animation-delay: 0.4s; }
+    nav ul.active li:nth-child(4) { animation-delay: 0.3s; }
+    nav ul.active li:nth-child(5) { animation-delay: 0.2s; }
+    nav ul.active li:nth-child(6) { animation-delay: 0.1s; }
+    
+    nav ul.closing li {
+        animation: slideUp 0.4s ease forwards;
+    }
+    
+    nav ul.closing li:nth-child(1) { animation-delay: 0s; }
+    nav ul.closing li:nth-child(2) { animation-delay: 0.05s; }
+    nav ul.closing li:nth-child(3) { animation-delay: 0.1s; }
+    nav ul.closing li:nth-child(4) { animation-delay: 0.15s; }
+    nav ul.closing li:nth-child(5) { animation-delay: 0.2s; }
+    nav ul.closing li:nth-child(6) { animation-delay: 0.25s; }
+    
+    nav ul li:last-child {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+    }
+    
+    main {
+        padding: 0.5em;
+        max-width: 100%;
+    }
+    section {
+        min-height: 80vh;
+        margin-bottom: 1em;
+    }
+    h1, h2 {
+        font-size: 1.5em;
+    }
+    input, textarea, button {
+        font-size: 1em;
+    }
+}
