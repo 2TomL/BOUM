@@ -66,19 +66,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Accordion Menu functionaliteit
-document.querySelectorAll(".acc-slide").forEach((slide, index, allSlides) => {
-    slide.addEventListener("click", () => {
-        // Als dezelfde slide al open is → sluit alles
-        if (slide.classList.contains("active")) {
+document.addEventListener('DOMContentLoaded', function() {
+    const accSlides = document.querySelectorAll(".acc-slide");
+    
+    accSlides.forEach((slide, index, allSlides) => {
+        slide.addEventListener("click", () => {
+            console.log('Slide clicked:', slide.dataset.category);
+            
+            // Als dezelfde slide al open is → sluit alles
+            if (slide.classList.contains("active")) {
+                allSlides.forEach(s => s.classList.remove("active"));
+                return;
+            }
+
+            // Alles sluiten
             allSlides.forEach(s => s.classList.remove("active"));
-            return;
-        }
 
-        // Alles sluiten
-        allSlides.forEach(s => s.classList.remove("active"));
-
-        // Huidige openen
-        slide.classList.add("active");
+            // Huidige openen
+            slide.classList.add("active");
+            console.log('Active class added');
+        });
     });
 });
 
