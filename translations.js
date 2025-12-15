@@ -1,5 +1,42 @@
 const translations = {
     nl: {
+        // FAQ Accordion
+        faqAccordion: {
+            bestellen: {
+                category: "🥪 Bestellen",
+                q1: "Hoe kan ik een bestelling plaatsen?",
+                a1: "Je kan bestellen via onze website, telefonisch of ter plaatse in de zaak.",
+                q2: "Kan ik online bestellen?",
+                a2: "Ja, online bestellingen zijn mogelijk tijdens onze openingsuren.",
+                q3: "Tot hoe laat kan ik bestellen?",
+                a3: "Bestellingen worden aanvaard tot bv. 30 minuten voor sluiting.",
+                q4: "Kan ik een bestelling vooruit plaatsen?",
+                a4: "Ja, je kan een bestelling plaatsen voor later op dezelfde dag of een volgende dag."
+            },
+            afhalen: {
+                category: "⏰ Afhalen & levering",
+                q1: "Wanneer kan ik mijn bestelling afhalen?",
+                a1: "Op het tijdstip dat je kiest tijdens het bestellen.",
+                q2: "Leveren jullie aan huis of op kantoor?",
+                a2: "Dat hangt af van de locatie. Levering is mogelijk binnen zone / afstand.",
+                q3: "Is er een minimum bedrag voor levering?",
+                a3: "Ja, het minimumbedrag voor levering is €[bedrag]."
+            },
+            betaling: {
+                category: "🧾 Betaling",
+                q1: "Hoe kan ik betalen?",
+                a1: "Je kan betalen met Bancontact, cash, Payconiq of online betaling (indien beschikbaar).",
+                q2: "Moet ik vooraf betalen bij online bestellingen?",
+                a2: "Ja, online bestellingen worden vooraf betaald om een vlotte service te garanderen."
+            },
+            allergie: {
+                category: "🌱 Allergieën & dieetwensen",
+                q1: "Kunnen jullie rekening houden met allergieën?",
+                a1: "Ja, vermeld allergieën duidelijk bij je bestelling. We doen ons best om kruisbesmetting te vermijden.",
+                q2: "Hebben jullie vegetarische / vegan / halal opties?",
+                a2: "Ja, we bieden verschillende alternatieven aan. Vraag gerust naar de mogelijkheden."
+            }
+        },
         home: "Home",
         menu: "Menu",
         about: "About",
@@ -17,6 +54,9 @@ const translations = {
         send: "Verstuur",
         fillAll: "Vul alle velden in aub.",
         thanks: "Bedankt voor je bericht, ",
+        orderNow: "Bestel nu",
+        orderMenu: "Bestel",
+        printMenu: "Print Menu",
         // Menu categorieën
         starters: "Starters",
         sandwiches: "Sandwiches",
@@ -46,6 +86,43 @@ const translations = {
         soda: "Frisdrank"
     },
     en: {
+        // FAQ Accordion
+        faqAccordion: {
+            bestellen: {
+                category: "🥪 Ordering",
+                q1: "How can I place an order?",
+                a1: "You can order via our website, by phone, or in person at the shop.",
+                q2: "Can I order online?",
+                a2: "Yes, online orders are possible during our opening hours.",
+                q3: "Until what time can I order?",
+                a3: "Orders are accepted until e.g. 30 minutes before closing.",
+                q4: "Can I place an order in advance?",
+                a4: "Yes, you can place an order for later the same day or for another day."
+            },
+            afhalen: {
+                category: "⏰ Pickup & delivery",
+                q1: "When can I pick up my order?",
+                a1: "At the time you choose during ordering.",
+                q2: "Do you deliver to home or office?",
+                a2: "That depends on the location. Delivery is possible within a certain zone/distance.",
+                q3: "Is there a minimum amount for delivery?",
+                a3: "Yes, the minimum amount for delivery is €[amount]."
+            },
+            betaling: {
+                category: "🧾 Payment",
+                q1: "How can I pay?",
+                a1: "You can pay with Bancontact, cash, Payconiq, or online payment (if available).",
+                q2: "Do I have to pay in advance for online orders?",
+                a2: "Yes, online orders are paid in advance to ensure smooth service."
+            },
+            allergie: {
+                category: "🌱 Allergies & dietary wishes",
+                q1: "Can you take allergies into account?",
+                a1: "Yes, please clearly mention allergies when ordering. We do our best to avoid cross-contamination.",
+                q2: "Do you have vegetarian / vegan / halal options?",
+                a2: "Yes, we offer various alternatives. Feel free to ask about the options."
+            }
+        },
         home: "Home",
         menu: "Menu",
         about: "About",
@@ -63,6 +140,9 @@ const translations = {
         send: "Send",
         fillAll: "Please fill in all fields.",
         thanks: "Thank you for your message, ",
+        orderNow: "Order now",
+        orderMenu: "Order",
+        printMenu: "Print Menu",
         // Menu categories
         starters: "Starters",
         sandwiches: "Sandwiches",
@@ -92,6 +172,43 @@ const translations = {
         soda: "Soft Drink"
     },
     fr: {
+        // FAQ Accordion
+        faqAccordion: {
+            bestellen: {
+                category: "🥪 Commander",
+                q1: "Comment puis-je passer une commande ?",
+                a1: "Vous pouvez commander via notre site web, par téléphone ou sur place.",
+                q2: "Puis-je commander en ligne ?",
+                a2: "Oui, les commandes en ligne sont possibles pendant nos heures d'ouverture.",
+                q3: "Jusqu'à quelle heure puis-je commander ?",
+                a3: "Les commandes sont acceptées jusqu'à, par exemple, 30 minutes avant la fermeture.",
+                q4: "Puis-je passer une commande à l'avance ?",
+                a4: "Oui, vous pouvez commander pour plus tard le même jour ou pour un autre jour."
+            },
+            afhalen: {
+                category: "⏰ Retrait & livraison",
+                q1: "Quand puis-je retirer ma commande ?",
+                a1: "À l'heure que vous choisissez lors de la commande.",
+                q2: "Livrez-vous à domicile ou au bureau ?",
+                a2: "Cela dépend de l'emplacement. La livraison est possible dans une certaine zone/distance.",
+                q3: "Y a-t-il un montant minimum pour la livraison ?",
+                a3: "Oui, le montant minimum pour la livraison est de €[montant]."
+            },
+            betaling: {
+                category: "🧾 Paiement",
+                q1: "Comment puis-je payer ?",
+                a1: "Vous pouvez payer par Bancontact, en espèces, Payconiq ou paiement en ligne (si disponible).",
+                q2: "Dois-je payer à l'avance pour les commandes en ligne ?",
+                a2: "Oui, les commandes en ligne sont payées à l'avance pour garantir un service fluide."
+            },
+            allergie: {
+                category: "🌱 Allergies & régimes",
+                q1: "Pouvez-vous tenir compte des allergies ?",
+                a1: "Oui, veuillez indiquer clairement les allergies lors de la commande. Nous faisons de notre mieux pour éviter la contamination croisée.",
+                q2: "Avez-vous des options végétariennes / véganes / halal ?",
+                a2: "Oui, nous proposons différentes alternatives. N'hésitez pas à demander les possibilités."
+            }
+        },
         home: "Accueil",
         menu: "Menu",
         about: "À propos",
@@ -109,6 +226,9 @@ const translations = {
         send: "Envoyer",
         fillAll: "Veuillez remplir tous les champs.",
         thanks: "Merci pour votre message, ",
+        orderNow: "Commander maintenant",
+        orderMenu: "Commander",
+        printMenu: "Imprimer le Menu",
         // Menu catégories
         starters: "Entrées",
         sandwiches: "Sandwichs",
@@ -158,6 +278,9 @@ function setLanguage(lang) {
     const emailLabel = document.querySelector('label[for="email"]');
     const messageLabel = document.querySelector('label[for="message"]');
     const submitButton = document.querySelector('#contactForm button');
+    const orderBtn = document.querySelector('.order-btn');
+    const orderMenuBtn = document.querySelector('.order-menu-btn .text');
+    const printMenuBtn = document.querySelector('.print-menu-btn .text');
     
     if (homeLink) homeLink.textContent = t.home;
     if (menuLink) menuLink.textContent = t.menu;
@@ -176,6 +299,9 @@ function setLanguage(lang) {
     if (emailLabel) emailLabel.textContent = t.email;
     if (messageLabel) messageLabel.textContent = t.message;
     if (submitButton) submitButton.textContent = t.send;
+    if (orderBtn) orderBtn.textContent = t.orderNow;
+    if (orderMenuBtn) orderMenuBtn.textContent = t.orderMenu;
+    if (printMenuBtn) printMenuBtn.textContent = t.printMenu;
     
     // Menu categorieën vertalen
     const startersLabel = document.querySelector('.acc-starters .acc-label');

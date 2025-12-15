@@ -32,6 +32,7 @@
         <section id="home">
             <h1>BOUM Baguette</h1>
             <p>Modern café & brasserie</p>
+            <a href="#menu" class="order-btn">Bestel nu</a>
         </section>
         <section id="menu">
             <h2>Menu</h2>
@@ -83,6 +84,16 @@
                     </div>
                 </div>
             </div>
+            <div class="menu-actions">
+                <a href="#contact" class="menu-btn order-menu-btn">
+                    <span class="icon">●</span>
+                    <span class="text">Bestel</span>
+                </a>
+                <button onclick="window.print()" class="menu-btn print-menu-btn">
+                    <span class="icon">▣</span>
+                    <span class="text">Print Menu</span>
+                </button>
+            </div>
         </section>
         <section id="about">
             <h2>About</h2>
@@ -90,19 +101,38 @@
         </section>
         <section id="faq">
             <h2>FAQ</h2>
-            <p>Veelgestelde vragen.</p>
+            <div class="faq-accordion-wrapper">
+                <div class="faq-accordion" id="faqAccordion"></div>
+            </div>
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <form id="contactForm">
-                <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Bericht:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Verstuur</button>
-            </form>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <div class="contact-address-block">
+                        <div class="contact-header">
+                            <strong>BOUM baguette</strong><br>
+                            <span>woe-zat 11-16u</span>
+                        </div>
+                        <h3 style="margin-top:1em;">Adres</h3>
+                        <p>Demerstraat 15, 3290 Diest</p>
+                        <h3>Telefoon</h3>
+                        <p><a href="tel:+3212345678">+32 12 34 56 78</a></p>
+                    </div>
+                    <div class="contact-map">
+                        <iframe title="Routeplanner" src="https://www.google.com/maps?q=Demerstraat+15,+3290+Diest&output=embed" width="100%" height="220" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <form id="contactForm">
+                    <label for="name">Naam:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Bericht:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Verstuur</button>
+                </form>
+            </div>
             <div id="formMessage"></div>
         </section>
     </main>
