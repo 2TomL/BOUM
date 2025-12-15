@@ -162,23 +162,19 @@ document.addEventListener('DOMContentLoaded', function() {
 // Accordion Menu functionaliteit
 document.addEventListener('DOMContentLoaded', function() {
     const accSlides = document.querySelectorAll(".acc-slide");
-    
+    // Alles standaard gesloten bij laden
+    accSlides.forEach(s => s.classList.remove("active"));
     accSlides.forEach((slide, index, allSlides) => {
         slide.addEventListener("click", () => {
-            console.log('Slide clicked:', slide.dataset.category);
-            
             // Als dezelfde slide al open is → sluit alles
             if (slide.classList.contains("active")) {
                 allSlides.forEach(s => s.classList.remove("active"));
                 return;
             }
-
             // Alles sluiten
             allSlides.forEach(s => s.classList.remove("active"));
-
             // Huidige openen
             slide.classList.add("active");
-            console.log('Active class added');
         });
     });
 });
