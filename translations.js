@@ -5,8 +5,8 @@ const translations = {
         about: "About",
         faq: "FAQ",
         contact: "Contact",
-        welcome: "Welkom bij BOUM Baguette",
-        intro: "Dit is een volledig witte, minimalistische en reactieve site.",
+        welcome: "BOUM Baguette",
+        intro: "Modern café & brasserie",
         menuContent: "Hier komt het menu.",
         aboutContent: "Over deze website.",
         faqContent: "Veelgestelde vragen.",
@@ -16,7 +16,34 @@ const translations = {
         message: "Bericht:",
         send: "Verstuur",
         fillAll: "Vul alle velden in aub.",
-        thanks: "Bedankt voor je bericht, "
+        thanks: "Bedankt voor je bericht, ",
+        // Menu categorieën
+        starters: "Starters",
+        sandwiches: "Sandwiches",
+        coffee: "Bij de Koffie",
+        drinks: "Drinks",
+        // Starters items
+        olives: "Olijven",
+        ham: "Portie Italiaanse Ham",
+        cheese: "Kaas Plankje",
+        soup: "Soep van de Dag",
+        // Sandwiches items
+        clubSandwich: "Club Sandwich",
+        croquemonsieur: "Croque Monsieur",
+        baguette: "Baguette Jambon Fromage",
+        panini: "Panini Italië",
+        // Bij de Koffie items
+        tiramisu: "Tiramisu",
+        brownie: "Brownie",
+        applepie: "Appeltaart",
+        mousse: "Chocolade Mousse",
+        // Drinks items
+        espresso: "Espresso",
+        cappuccino: "Cappuccino",
+        latte: "Latte Macchiato",
+        wine: "Wijn (glas)",
+        prosecco: "Prosecco (glas)",
+        soda: "Frisdrank"
     },
     en: {
         home: "Home",
@@ -24,8 +51,8 @@ const translations = {
         about: "About",
         faq: "FAQ",
         contact: "Contact",
-        welcome: "Welcome to BOUM Baguette",
-        intro: "This is a fully white, minimalist and responsive site.",
+        welcome: "BOUM Baguette",
+        intro: "Modern café & brasserie",
         menuContent: "Here is the menu.",
         aboutContent: "About this website.",
         faqContent: "Frequently asked questions.",
@@ -35,7 +62,34 @@ const translations = {
         message: "Message:",
         send: "Send",
         fillAll: "Please fill in all fields.",
-        thanks: "Thank you for your message, "
+        thanks: "Thank you for your message, ",
+        // Menu categories
+        starters: "Starters",
+        sandwiches: "Sandwiches",
+        coffee: "With Coffee",
+        drinks: "Drinks",
+        // Starters items
+        olives: "Olives",
+        ham: "Italian Ham Platter",
+        cheese: "Cheese Board",
+        soup: "Soup of the Day",
+        // Sandwiches items
+        clubSandwich: "Club Sandwich",
+        croquemonsieur: "Croque Monsieur",
+        baguette: "Ham & Cheese Baguette",
+        panini: "Italian Panini",
+        // With Coffee items
+        tiramisu: "Tiramisu",
+        brownie: "Brownie",
+        applepie: "Apple Pie",
+        mousse: "Chocolate Mousse",
+        // Drinks items
+        espresso: "Espresso",
+        cappuccino: "Cappuccino",
+        latte: "Latte Macchiato",
+        wine: "Wine (glass)",
+        prosecco: "Prosecco (glass)",
+        soda: "Soft Drink"
     },
     fr: {
         home: "Accueil",
@@ -43,8 +97,8 @@ const translations = {
         about: "À propos",
         faq: "FAQ",
         contact: "Contact",
-        welcome: "Bienvenue chez BOUM Baguette",
-        intro: "Ceci est un site entièrement blanc, minimaliste et réactif.",
+        welcome: "BOUM Baguette",
+        intro: "Café & brasserie moderne",
         menuContent: "Voici le menu.",
         aboutContent: "À propos de ce site.",
         faqContent: "Questions fréquemment posées.",
@@ -54,7 +108,34 @@ const translations = {
         message: "Message:",
         send: "Envoyer",
         fillAll: "Veuillez remplir tous les champs.",
-        thanks: "Merci pour votre message, "
+        thanks: "Merci pour votre message, ",
+        // Menu catégories
+        starters: "Entrées",
+        sandwiches: "Sandwichs",
+        coffee: "Avec le Café",
+        drinks: "Boissons",
+        // Entrées items
+        olives: "Olives",
+        ham: "Assiette de Jambon Italien",
+        cheese: "Plateau de Fromages",
+        soup: "Soupe du Jour",
+        // Sandwichs items
+        clubSandwich: "Club Sandwich",
+        croquemonsieur: "Croque Monsieur",
+        baguette: "Baguette Jambon Fromage",
+        panini: "Panini Italien",
+        // Avec le Café items
+        tiramisu: "Tiramisu",
+        brownie: "Brownie",
+        applepie: "Tarte aux Pommes",
+        mousse: "Mousse au Chocolat",
+        // Boissons items
+        espresso: "Espresso",
+        cappuccino: "Cappuccino",
+        latte: "Latte Macchiato",
+        wine: "Vin (verre)",
+        prosecco: "Prosecco (verre)",
+        soda: "Boisson Gazeuse"
     }
 };
 
@@ -95,6 +176,40 @@ function setLanguage(lang) {
     if (emailLabel) emailLabel.textContent = t.email;
     if (messageLabel) messageLabel.textContent = t.message;
     if (submitButton) submitButton.textContent = t.send;
+    
+    // Menu categorieën vertalen
+    const startersLabel = document.querySelector('.acc-starters .acc-label');
+    const sandwichesLabel = document.querySelector('.acc-main .acc-label');
+    const coffeeLabel = document.querySelector('.acc-desserts .acc-label');
+    const drinksLabel = document.querySelector('.acc-drinks .acc-label');
+    
+    if (startersLabel) startersLabel.textContent = t.starters;
+    if (sandwichesLabel) sandwichesLabel.textContent = t.sandwiches;
+    if (coffeeLabel) coffeeLabel.textContent = t.coffee;
+    if (drinksLabel) drinksLabel.textContent = t.drinks;
+    
+    // Menu items vertalen
+    const menuItems = document.querySelectorAll('.acc-menu-items .menu-item');
+    const itemKeys = [
+        // Starters
+        'olives', 'ham', 'cheese', 'soup',
+        // Sandwiches
+        'clubSandwich', 'croquemonsieur', 'baguette', 'panini',
+        // Bij de Koffie
+        'tiramisu', 'brownie', 'applepie', 'mousse',
+        // Drinks
+        'espresso', 'cappuccino', 'latte', 'wine', 'prosecco', 'soda'
+    ];
+    
+    menuItems.forEach((item, index) => {
+        if (itemKeys[index] && t[itemKeys[index]]) {
+            const priceSpan = item.querySelector('span');
+            const price = priceSpan ? priceSpan.outerHTML : '';
+            item.innerHTML = t[itemKeys[index]] + ' ' + price;
+        }
+    });
+    
+    console.log('Language set to:', lang);
 }
 
 window.setLanguage = setLanguage;
