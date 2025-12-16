@@ -711,13 +711,18 @@ form#contactForm {
 @media (max-width: 900px) {
     .contact-flex {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         gap: 1.5em;
+        width: 100%;
+        padding: 0 1em;
+        box-sizing: border-box;
     }
     .contact-info, form#contactForm {
         max-width: 100%;
         min-width: 0;
         margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
     }
     .contact-info {
         order: -1;
