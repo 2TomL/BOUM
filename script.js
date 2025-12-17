@@ -77,18 +77,14 @@ function setupFaqAccordion() {
                 btn.classList.toggle('active');
                 if (btn.classList.contains('active')) {
                     answers[i].style.maxHeight = answers[i].scrollHeight + 'px';
-                    // Scroll to the question
-                    setTimeout(() => {
-                        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        // Update group height
-                        group.style.maxHeight = group.scrollHeight + 'px';
-                    }, 10);
                 } else {
                     answers[i].style.maxHeight = null;
-                    setTimeout(() => {
-                        group.style.maxHeight = group.scrollHeight + 'px';
-                    }, 10);
                 }
+                
+                // Update parent group height
+                setTimeout(() => {
+                    group.style.maxHeight = group.scrollHeight + 'px';
+                }, 10);
             });
         });
     });
