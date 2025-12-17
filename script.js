@@ -57,7 +57,7 @@ function setupFaqAccordion() {
             categories.forEach((cat, idx) => {
                 if (idx !== catIndex) {
                     cat.classList.remove('active');
-                    answerContainers[idx].style.maxHeight = null;
+                    answerContainers[idx].style.maxHeight = '0';
                 }
             });
             
@@ -68,7 +68,7 @@ function setupFaqAccordion() {
                     answerContainers[catIndex].style.maxHeight = answerContainers[catIndex].scrollHeight + 'px';
                 }, 10);
             } else {
-                answerContainers[catIndex].style.maxHeight = null;
+                answerContainers[catIndex].style.maxHeight = '0';
             }
         });
     });
