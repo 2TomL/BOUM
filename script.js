@@ -1,76 +1,30 @@
-// FAQ Accordion logic (dynamic, multi-language)
-function renderFaqAccordion(lang) {
-    const faqData = window.translations[lang]?.faqAccordion;
-    if (!faqData) return;
-    const faqOrder = ['bestellen', 'afhalen', 'betaling', 'allergie'];
-    const faqAccordion = document.getElementById('faqAccordion');
-    if (!faqAccordion) return;
-    let html = '';
-    faqOrder.forEach(key => {
-        const cat = faqData[key];
-        if (!cat) return;
-            let cleanTitle = cat.category.replace(/^([\uD800-\uDBFF][\uDC00-\uDFFF]|[^\w\s])\s*/, '');
-            html += `<div class="container">
-                    <div class="question">${cleanTitle}</div>
-                    <div class="answercont">
-                        <div class="answer">${cat.q1}<br><br>${cat.a1}</div>
-                    </div>
-                </div>`;
-            if (cat.q2) {
-                html += `<div class="container">
-                    <div class="question">${cat.q2}</div>
-                    <div class="answercont">
-                        <div class="answer">${cat.a2}</div>
-                    </div>
-                </div>`;
-            }
-            if (cat.q3) {
-                html += `<div class="container">
-                    <div class="question">${cat.q3}</div>
-                    <div class="answercont">
-                        <div class="answer">${cat.a3}</div>
-                    </div>
-                </div>`;
-            }
-            if (cat.q4) {
-                html += `<div class="container">
-                    <div class="question">${cat.q4}</div>
-                    <div class="answercont">
-                        <div class="answer">${cat.a4}</div>
-                    </div>
-                </div>`;
-            }
-    });
-    faqAccordion.innerHTML = html;
-    setupFaqAccordion();
-}
-
+// FAQ Accordion simple version
 function setupFaqAccordion() {
-    let question = document.querySelectorAll(".question");
-
-    question.forEach(q => {
-        q.addEventListener("click", event => {
+    let questions = document.querySelectorAll(".question");
+    
+    questions.forEach(question => {
+        question.addEventListener("click", event => {
             const active = document.querySelector(".question.active");
-            if(active && active !== q ) {
+            if(active && active !== question) {
                 active.classList.toggle("active");
                 active.nextElementSibling.style.maxHeight = 0;
             }
-            q.classList.toggle("active");
-            const answer = q.nextElementSibling;
-            if(q.classList.contains("active")){
+            question.classList.toggle("active");
+            const answer = question.nextElementSibling;
+            if(question.classList.contains("active")){
                 answer.style.maxHeight = answer.scrollHeight + "px";
             } else {
                 answer.style.maxHeight = 0;
             }
-        })
-    })
+        });
+    });
 }
 
 // Initial render
 document.addEventListener('DOMContentLoaded', function () {
     const lang = (document.getElementById('languageSelect')?.value) || 'nl';
     window.currentLanguage = lang;
-    renderFaqAccordion(lang);
+    setupFaqAccordion();
     setLanguage(lang);
     
     // Scroll-zoom effect voor home-sectie (vloeiend)
@@ -100,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
         langSelect.addEventListener('change', function() {
             window.currentLanguage = this.value;
             setLanguage(this.value);
-            renderFaqAccordion(this.value);
         });
     }
     

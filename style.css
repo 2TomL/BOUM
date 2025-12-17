@@ -1,5 +1,5 @@
 /* FAQ Accordion Styles */
-.faq-accordion-wrapper {
+.wrapper {
     width: 75%;
     margin: 0 auto 2.5em auto;
     display: flex;
@@ -7,19 +7,12 @@
     align-items: center;
 }
 
-.faq-accordion {
-    width: 100%;
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
 .container {
+    width: 100%;
     background-color: white;
     color: black;
     border-radius: 20px;
-    box-shadow: 0 5px 10px 0 rgb(0,0,0,0.25);
+    box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
     margin: 20px 0;
 }
 
@@ -31,6 +24,10 @@ h1 {
     display: flex;
     align-items: center;
     cursor: pointer;
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: left;
 }
 
 .question::after {
@@ -55,20 +52,12 @@ h1 {
     padding: 0 20px 20px;
     line-height: 1.5rem;
 }
-    line-height: 1.5rem;
-    color: #333;
-    font-size: 1.08em;
-    background: transparent;
-    border-radius: 0;
-    margin-bottom: 0;
-    box-shadow: none;
-    border: none;
-}
+
 @media screen and (max-width: 790px){
     html {
         font-size: 14px;
     }
-    .faq-accordion-wrapper {
+    .wrapper {
         width: 80%;
     }
     .menu-actions {
