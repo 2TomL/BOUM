@@ -6,57 +6,96 @@ function renderFaqAccordion(lang) {
     const faqAccordion = document.getElementById('faqAccordion');
     if (!faqAccordion) return;
     let html = '';
+    
     faqOrder.forEach(key => {
         const cat = faqData[key];
         if (!cat) return;
-            let cleanTitle = cat.category.replace(/^([\uD800-\uDBFF][\uDC00-\uDFFF]|[^\w\s])\s*/, '');
-            html += `<div class="container">
-                <div class="question">${cleanTitle}</div>
-                <div class="answercont">
-                    <div class="answer"><strong>${cat.q1}</strong><br>${cat.a1}</div>
+        
+        let cleanTitle = cat.category.replace(/^([\uD800-\uDBFF][\uDC00-\uDFFF]|[^\w\s])\s*/, '');
+        html += `<div class="container">
+            <div class="question">${cleanTitle}</div>
+            <div class="answercont">
+                <div class="faq-item">
+                    <div class="faq-question">${cat.q1}</div>
+                    <div class="faq-answer">${cat.a1}</div>
                 </div>`;
-            
-            if (cat.q2) {
-                html += `<div class="question">${cat.q2}</div>
-                <div class="answercont">
-                    <div class="answer">${cat.a2}</div>
-                </div>`;
-            }
-            if (cat.q3) {
-                html += `<div class="question">${cat.q3}</div>
-                <div class="answercont">
-                    <div class="answer">${cat.a3}</div>
-                </div>`;
-            }
-            if (cat.q4) {
-                html += `<div class="question">${cat.q4}</div>
-                <div class="answercont">
-                    <div class="answer">${cat.a4}</div>
-                </div>`;
-            }
-            html += `</div>`;
+        
+        if (cat.q2) {
+            html += `<div class="faq-item">
+                <div class="faq-question">${cat.q2}</div>
+                <div class="faq-answer">${cat.a2}</div>
+            </div>`;
+        }
+        if (cat.q3) {
+            html += `<div class="faq-item">
+                <div class="faq-question">${cat.q3}</div>
+                <div class="faq-answer">${cat.a3}</div>
+            </div>`;
+        }
+        if (cat.q4) {
+            html += `<div class="faq-item">
+                <div class="faq-question">${cat.q4}</div>
+                <div class="faq-answer">${cat.a4}</div>
+            </div>`;
+        }
+        
+        html += `</div></div>`;
     });
+    
     faqAccordion.innerHTML = html;
     setupFaqAccordion();
 }
 
 function setupFaqAccordion() {
-    const questions = document.querySelectorAll('.question');
+    // Categories accordion - only one open at a time
+    const categories = document.querySelectorAll('.container > .question');
+    const answerContainers = document.querySelectorAll('.container > .answercont');
     
-    questions.forEach(question => {
-        question.addEventListener('click', event => {
-            const active = document.querySelector('.question.active');
-            if (active && active !== question) {
-                active.classList.remove('active');
-                active.nextElementSibling.style.maxHeight = null;
-            }
-            question.classList.toggle('active');
-            const answer = question.nextElementSibling;
-            if (question.classList.contains('active')) {
-                answer.style.maxHeight = answer.scrollHeight + 'px';
+    categories.forEach((category, catIndex) => {
+        category.addEventListener('click', function() {
+            // Close all other categories
+            categories.forEach((cat, idx) => {
+                if (idx !== catIndex) {
+                    cat.classList.remove('active');
+                    answerContainers[idx].style.maxHeight = null;
+                }
+            });
+            
+            // Toggle current category
+            category.classList.toggle('active');
+            if (category.classList.contains('active')) {
+                answerContainers[catIndex].style.maxHeight = answerContainers[catIndex].scrollHeight + 'px';
             } else {
-                answer.style.maxHeight = null;
+                answerContainers[catIndex].style.maxHeight = null;
             }
+        });
+    });
+    
+    // Questions accordion within each category - only one answer open per category
+    answerContainers.forEach((container) => {
+        const questions = container.querySelectorAll('.faq-question');
+        
+        questions.forEach((question) => {
+            question.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Close all other answers in this category
+                questions.forEach((q) => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.maxHeight = null;
+                    }
+                });
+                
+                // Toggle current answer
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if (question.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
         });
     });
 }
