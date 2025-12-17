@@ -29,8 +29,10 @@ function setupFaqAccordion() {
     // Category (section) accordion
     const faqCategories = document.querySelectorAll('.faq-category');
     const faqGroups = document.querySelectorAll('.faq-group-content');
+    
     faqCategories.forEach(cat => cat.classList.remove('active'));
     faqGroups.forEach(g => g.style.maxHeight = null);
+    
     faqCategories.forEach((catBtn, idx) => {
         catBtn.addEventListener('click', function () {
             faqCategories.forEach((b, i) => {
@@ -47,6 +49,38 @@ function setupFaqAccordion() {
                     faqGroups[idx].style.maxHeight = null;
                 }
             }
+        });
+    });
+    
+    // Question accordion - only one answer open per category
+    const allFaqGroups = document.querySelectorAll('.faq-group-content');
+    allFaqGroups.forEach(group => {
+        const questions = group.querySelectorAll('.faq-question');
+        const answers = group.querySelectorAll('.faq-answercont');
+        
+        questions.forEach((btn, i) => {
+            btn.classList.remove('active');
+            answers[i].style.maxHeight = null;
+            
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                
+                // Close all other answers in this group
+                questions.forEach((b, j) => {
+                    if (b !== btn) {
+                        b.classList.remove('active');
+                        answers[j].style.maxHeight = null;
+                    }
+                });
+                
+                // Toggle current answer
+                btn.classList.toggle('active');
+                if (btn.classList.contains('active')) {
+                    answers[i].style.maxHeight = answers[i].scrollHeight + 'px';
+                } else {
+                    answers[i].style.maxHeight = null;
+                }
+            });
         });
     });
 }
