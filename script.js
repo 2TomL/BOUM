@@ -34,19 +34,25 @@ function setupFaqAccordion() {
     faqGroups.forEach(g => g.style.maxHeight = null);
     
     faqCategories.forEach((catBtn, idx) => {
-        catBtn.addEventListener('click', function () {
-            faqCategories.forEach((b, i) => {
-                if (b !== catBtn) {
+        // Clone to remove existing listeners
+        const newCatBtn = catBtn.cloneNode(true);
+        catBtn.parentNode.replaceChild(newCatBtn, catBtn);
+        
+        newCatBtn.addEventListener('click', function () {
+            document.querySelectorAll('.faq-category').forEach((b, i) => {
+                if (b !== newCatBtn) {
                     b.classList.remove('active');
-                    if (faqGroups[i]) faqGroups[i].style.maxHeight = null;
+                    const groups = document.querySelectorAll('.faq-group-content');
+                    if (groups[i]) groups[i].style.maxHeight = null;
                 }
             });
-            catBtn.classList.toggle('active');
-            if (faqGroups[idx]) {
-                if (catBtn.classList.contains('active')) {
-                    faqGroups[idx].style.maxHeight = faqGroups[idx].scrollHeight + 'px';
+            newCatBtn.classList.toggle('active');
+            const groups = document.querySelectorAll('.faq-group-content');
+            if (groups[idx]) {
+                if (newCatBtn.classList.contains('active')) {
+                    groups[idx].style.maxHeight = groups[idx].scrollHeight + 'px';
                 } else {
-                    faqGroups[idx].style.maxHeight = null;
+                    groups[idx].style.maxHeight = null;
                 }
             }
         });
@@ -55,30 +61,38 @@ function setupFaqAccordion() {
     // Question accordion - only one answer open per category
     const allFaqGroups = document.querySelectorAll('.faq-group-content');
     allFaqGroups.forEach(group => {
-        const questions = group.querySelectorAll('.faq-question');
-        const answers = group.querySelectorAll('.faq-answercont');
+        const questions = Array.from(group.querySelectorAll('.faq-question'));
+        const answers = Array.from(group.querySelectorAll('.faq-answercont'));
         
         questions.forEach((btn, i) => {
-            btn.classList.remove('active');
+            // Clone to remove existing listeners
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.classList.remove('active');
             answers[i].style.maxHeight = null;
             
-            btn.addEventListener('click', function (e) {
+            newBtn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 
+                const groupQuestions = Array.from(group.querySelectorAll('.faq-question'));
+                const groupAnswers = Array.from(group.querySelectorAll('.faq-answercont'));
+                
                 // Close all other answers in this group
-                questions.forEach((b, j) => {
-                    if (b !== btn) {
+                groupQuestions.forEach((b, j) => {
+                    if (b !== newBtn) {
                         b.classList.remove('active');
-                        answers[j].style.maxHeight = null;
+                        groupAnswers[j].style.maxHeight = null;
                     }
                 });
                 
                 // Toggle current answer
-                btn.classList.toggle('active');
-                if (btn.classList.contains('active')) {
-                    answers[i].style.maxHeight = answers[i].scrollHeight + 'px';
+                newBtn.classList.toggle('active');
+                const currentIndex = groupQuestions.indexOf(newBtn);
+                if (newBtn.classList.contains('active')) {
+                    groupAnswers[currentIndex].style.maxHeight = groupAnswers[currentIndex].scrollHeight + 'px';
                 } else {
-                    answers[i].style.maxHeight = null;
+                    groupAnswers[currentIndex].style.maxHeight = null;
                 }
                 
                 // Update parent group height
