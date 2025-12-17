@@ -10,98 +10,60 @@ function renderFaqAccordion(lang) {
         const cat = faqData[key];
         if (!cat) return;
             let cleanTitle = cat.category.replace(/^([\uD800-\uDBFF][\uDC00-\uDFFF]|[^\w\s])\s*/, '');
-            html += `<div class="faq-group">
-                <button class="faq-category">${cleanTitle}</button>
-                <div class="faq-group-content">
-                    <button class="faq-question">${cat.q1}</button>
-                    <div class="faq-answercont"><div class="faq-answer">${cat.a1}</div></div>
-                    ${cat.q2 ? `<button class="faq-question">${cat.q2}</button><div class="faq-answercont"><div class="faq-answer">${cat.a2}</div></div>` : ''}
-                    ${cat.q3 ? `<button class="faq-question">${cat.q3}</button><div class="faq-answercont"><div class="faq-answer">${cat.a3}</div></div>` : ''}
-                    ${cat.q4 ? `<button class="faq-question">${cat.q4}</button><div class="faq-answercont"><div class="faq-answer">${cat.a4}</div></div>` : ''}
-                </div>
-            </div>`;
+            html += `<div class="container">
+                    <div class="question">${cleanTitle}</div>
+                    <div class="answercont">
+                        <div class="answer">${cat.q1}<br><br>${cat.a1}</div>
+                    </div>
+                </div>`;
+            if (cat.q2) {
+                html += `<div class="container">
+                    <div class="question">${cat.q2}</div>
+                    <div class="answercont">
+                        <div class="answer">${cat.a2}</div>
+                    </div>
+                </div>`;
+            }
+            if (cat.q3) {
+                html += `<div class="container">
+                    <div class="question">${cat.q3}</div>
+                    <div class="answercont">
+                        <div class="answer">${cat.a3}</div>
+                    </div>
+                </div>`;
+            }
+            if (cat.q4) {
+                html += `<div class="container">
+                    <div class="question">${cat.q4}</div>
+                    <div class="answercont">
+                        <div class="answer">${cat.a4}</div>
+                    </div>
+                </div>`;
+            }
     });
     faqAccordion.innerHTML = html;
     setupFaqAccordion();
 }
 
 function setupFaqAccordion() {
-    // Category (section) accordion
-    const faqCategories = document.querySelectorAll('.faq-category');
-    const faqGroups = document.querySelectorAll('.faq-group-content');
-    
-    faqCategories.forEach(cat => cat.classList.remove('active'));
-    faqGroups.forEach(g => g.style.maxHeight = null);
-    
-    faqCategories.forEach((catBtn, idx) => {
-        // Clone to remove existing listeners
-        const newCatBtn = catBtn.cloneNode(true);
-        catBtn.parentNode.replaceChild(newCatBtn, catBtn);
-        
-        newCatBtn.addEventListener('click', function () {
-            document.querySelectorAll('.faq-category').forEach((b, i) => {
-                if (b !== newCatBtn) {
-                    b.classList.remove('active');
-                    const groups = document.querySelectorAll('.faq-group-content');
-                    if (groups[i]) groups[i].style.maxHeight = null;
-                }
-            });
-            newCatBtn.classList.toggle('active');
-            const groups = document.querySelectorAll('.faq-group-content');
-            if (groups[idx]) {
-                if (newCatBtn.classList.contains('active')) {
-                    groups[idx].style.maxHeight = groups[idx].scrollHeight + 'px';
-                } else {
-                    groups[idx].style.maxHeight = null;
-                }
+    let question = document.querySelectorAll(".question");
+
+    question.forEach(q => {
+        q.addEventListener("click", event => {
+            const active = document.querySelector(".question.active");
+            if(active && active !== q ) {
+                active.classList.toggle("active");
+                active.nextElementSibling.style.maxHeight = 0;
             }
-        });
-    });
-    
-    // Question accordion - only one answer open per category
-    const allFaqGroups = document.querySelectorAll('.faq-group-content');
-    allFaqGroups.forEach(group => {
-        const questions = Array.from(group.querySelectorAll('.faq-question'));
-        const answers = Array.from(group.querySelectorAll('.faq-answercont'));
-        
-        questions.forEach((btn, i) => {
-            // Clone to remove existing listeners
-            const newBtn = btn.cloneNode(true);
-            btn.parentNode.replaceChild(newBtn, btn);
-            
-            newBtn.classList.remove('active');
-            answers[i].style.maxHeight = null;
-            
-            newBtn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                
-                const groupQuestions = Array.from(group.querySelectorAll('.faq-question'));
-                const groupAnswers = Array.from(group.querySelectorAll('.faq-answercont'));
-                
-                // Close all other answers in this group
-                groupQuestions.forEach((b, j) => {
-                    if (b !== newBtn) {
-                        b.classList.remove('active');
-                        groupAnswers[j].style.maxHeight = null;
-                    }
-                });
-                
-                // Toggle current answer
-                newBtn.classList.toggle('active');
-                const currentIndex = groupQuestions.indexOf(newBtn);
-                if (newBtn.classList.contains('active')) {
-                    groupAnswers[currentIndex].style.maxHeight = groupAnswers[currentIndex].scrollHeight + 'px';
-                } else {
-                    groupAnswers[currentIndex].style.maxHeight = null;
-                }
-                
-                // Update parent group height
-                setTimeout(() => {
-                    group.style.maxHeight = group.scrollHeight + 'px';
-                }, 10);
-            });
-        });
-    });
+            q.classList.toggle("active");
+            const answer = q.nextElementSibling;
+            if(q.classList.contains("active")){
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                answer.style.maxHeight = 0;
+            }
+        })
+    })
 }
 
 // Initial render
