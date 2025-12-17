@@ -9,7 +9,6 @@ function renderFaqAccordion(lang) {
     faqOrder.forEach(key => {
         const cat = faqData[key];
         if (!cat) return;
-            // Remove emoji/icon from category title
             let cleanTitle = cat.category.replace(/^([\uD800-\uDBFF][\uDC00-\uDFFF]|[^\w\s])\s*/, '');
             html += `<div class="faq-group">
                 <button class="faq-category">${cleanTitle}</button>
@@ -30,7 +29,6 @@ function setupFaqAccordion() {
     // Category (section) accordion
     const faqCategories = document.querySelectorAll('.faq-category');
     const faqGroups = document.querySelectorAll('.faq-group-content');
-    // Alles standaard gesloten
     faqCategories.forEach(cat => cat.classList.remove('active'));
     faqGroups.forEach(g => g.style.maxHeight = null);
     faqCategories.forEach((catBtn, idx) => {
@@ -57,7 +55,6 @@ function setupFaqAccordion() {
         const questions = group.querySelectorAll('.faq-question');
         const answers = group.querySelectorAll('.faq-answercont');
         if (questions.length && answers.length) {
-            // Open none by default
             questions.forEach((btn, i) => {
                 btn.classList.remove('active');
                 answers[i].style.maxHeight = null;
@@ -71,13 +68,11 @@ function setupFaqAccordion() {
                     btn.classList.toggle('active');
                     if (btn.classList.contains('active')) {
                         answers[i].style.maxHeight = answers[i].scrollHeight + 'px';
-                        // Update parent container height after animation starts
                         setTimeout(() => {
                             group.style.maxHeight = group.scrollHeight + 'px';
                         }, 10);
                     } else {
                         answers[i].style.maxHeight = null;
-                        // Recalculate parent container height
                         setTimeout(() => {
                             group.style.maxHeight = group.scrollHeight + 'px';
                         }, 10);
@@ -92,7 +87,6 @@ function setupFaqAccordion() {
 document.addEventListener('DOMContentLoaded', function () {
     const lang = (document.getElementById('languageSelect')?.value) || 'nl';
     renderFaqAccordion(lang);
-    // Listen for language change
     const langSelect = document.getElementById('languageSelect');
     if (langSelect) {
         langSelect.addEventListener('change', function () {
@@ -126,9 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (langSelect) {
         langSelect.addEventListener('change', function() {
             setLanguage(this.value);
+            renderFaqAccordion(this.value);
         });
-        // Init taal bij laden
         setLanguage('nl');
+        renderFaqAccordion('nl');
     }
     
     // Hamburger menu functionaliteit
@@ -138,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
             if (navMenu.classList.contains('active')) {
-                // Sluit menu met animatie
                 navMenu.classList.add('closing');
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
@@ -146,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     navMenu.classList.remove('closing');
                 }, 500);
             } else {
-                // Open menu
                 hamburger.classList.add('active');
                 navMenu.classList.add('active');
             }
@@ -170,18 +163,14 @@ document.addEventListener('DOMContentLoaded', function() {
 // Accordion Menu functionaliteit
 document.addEventListener('DOMContentLoaded', function() {
     const accSlides = document.querySelectorAll(".acc-slide");
-    // Alles standaard gesloten bij laden
     accSlides.forEach(s => s.classList.remove("active"));
     accSlides.forEach((slide, index, allSlides) => {
         slide.addEventListener("click", () => {
-            // Als dezelfde slide al open is → sluit alles
             if (slide.classList.contains("active")) {
                 allSlides.forEach(s => s.classList.remove("active"));
                 return;
             }
-            // Alles sluiten
             allSlides.forEach(s => s.classList.remove("active"));
-            // Huidige openen
             slide.classList.add("active");
         });
     });
