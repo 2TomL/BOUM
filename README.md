@@ -178,7 +178,7 @@ Portfolio: https://2toml.github.io/TL_Final/
 
 ## 📄 License
 
-This project is owned by BOUM baguette. All rights reserved.
+This project is owned by Tom Lamers. All rights reserved.
 
 ---
 
