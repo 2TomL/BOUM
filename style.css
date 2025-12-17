@@ -1,3 +1,48 @@
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --distX {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --distY {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --duration {
+  syntax: "<time>";
+  inherits: false;
+  initial-value: 10s;
+}
+
+@keyframes rotate {
+  from { --angle: 0deg }
+  to { --angle: 360deg }
+}
+
+@keyframes dist {
+  0%, 100% {
+    --distX: 0;
+    --distY: -10;
+  }
+  25% {
+    --distX: 10;
+    --distY: 0;
+  }
+  50% {
+    --distX: 0;
+    --distY: 10;
+  }
+  75% {
+    --distX: -10;
+    --distY: 0;
+  }
+}
+
 /* FAQ Accordion Styles */
 .faq-accordion-wrapper {
     width: 75%;
@@ -69,6 +114,8 @@
     border: none;
     width: 100%;
     text-align: left;
+    text-decoration: underline;
+    font-style: italic;
 }
 
 .faq-question::after {
@@ -157,6 +204,26 @@
     will-change: transform;
     /* Zorg dat de inhoud altijd zichtbaar blijft */
     overflow: hidden;
+}
+
+.home-logo {
+    max-width: 300px;
+    width: 80vw;
+    height: auto;
+    margin-bottom: 0;
+    box-shadow: 
+        calc(var(--distX) * -1px) calc(var(--distY) * -1px) 20px #8b6f4722, 
+        calc(var(--distX) * 1px) calc(var(--distY) * 1px) 20px #000000;
+    animation: dist 10s infinite linear;
+}
+
+.home-subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    margin: 0.5em 0 1.5em 0;
+    color: #2b2b2b;
 }
 
 .home-zoom {
@@ -276,15 +343,34 @@ nav {
     box-shadow: 0 2px 20px rgba(0,0,0,0.08);
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 25px;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+    max-height: 25px;
+}
+
+.mobile-menu-logo {
+    display: none !important;
+}
+
 nav ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
-    padding: 0.5em 2vw;
+    padding: 0.5em 0;
     justify-content: flex-end;
-    width: 100%;
     box-sizing: border-box;
     background: transparent;
 }
@@ -338,12 +424,12 @@ nav ul li:last-child {
 }
 /* Taalkeuze styling */
  .language-select {
-     padding: 0.3em 1.2em 0.3em 0.7em;
+     padding: 0.2em 1em 0.2em 0.5em;
      border-radius: 5px;
      border: 1px solid rgba(0,0,0,0.15);
-     font-size: 0.93em;
+     font-size: 0.8em;
      background: transparent url('asstes/language.png') no-repeat right 0.5em center;
-     background-size: 1.1em 1.1em;
+     background-size: 0.9em 0.9em;
      color: #2b2b2b;
      font-family: 'Helvetica Neue', Arial, sans-serif;
      font-weight: 400;
@@ -353,8 +439,9 @@ nav ul li:last-child {
      transition: all 0.3s ease;
      min-width: 0;
      width: auto;
-     max-width: 90px;
+     max-width: 70px;
      box-sizing: border-box;
+     margin-top: -2px;
  }
  .language-select option {
      padding: 0.2em 0.5em;
@@ -772,6 +859,10 @@ input:focus, textarea:focus {
         z-index: 1001;
     }
     
+    .nav-logo {
+        display: none !important;
+    }
+    
     .hamburger {
         display: flex;
     }
@@ -818,6 +909,20 @@ input:focus, textarea:focus {
         opacity: 0;
         transform: translateY(-100vh);
         transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-menu-logo {
+        display: flex !important;
+        justify-content: center;
+        margin-top: 1.5em !important;
+        margin-bottom: 1.5em !important;
+        width: 100%;
+    }
+
+    .mobile-logo {
+        max-width: 100px;
+        width: 60vw;
+        height: auto;
     }
     
     @keyframes slideDown {
