@@ -71,8 +71,16 @@ function setupFaqAccordion() {
                     btn.classList.toggle('active');
                     if (btn.classList.contains('active')) {
                         answers[i].style.maxHeight = answers[i].scrollHeight + 'px';
+                        // Update parent container height after animation starts
+                        setTimeout(() => {
+                            group.style.maxHeight = group.scrollHeight + 'px';
+                        }, 10);
                     } else {
                         answers[i].style.maxHeight = null;
+                        // Recalculate parent container height
+                        setTimeout(() => {
+                            group.style.maxHeight = group.scrollHeight + 'px';
+                        }, 10);
                     }
                 });
             });

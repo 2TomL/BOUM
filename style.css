@@ -655,7 +655,8 @@ main {
     justify-content: center;
     flex-wrap: nowrap;
     margin: 2em auto;
-    max-width: 1100px;
+    max-width: 100%;
+    width: fit-content;
 }
 .contact-info {
     flex: 1 1 360px;
@@ -737,6 +738,25 @@ input, textarea {
     color: #2b2b2b;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     transition: border-color 0.3s ease;
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em 1em 0.5em 1em;
+    margin-top: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+footer p {
+    margin: 0;
+}
+footer a {
+    color: #d4755f;
+    text-decoration: none;
+    font-weight: 500;
+}
+footer a:hover {
+    text-decoration: underline;
 }
 input:focus, textarea:focus {
     outline: none;

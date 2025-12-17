@@ -83,7 +83,9 @@ const translations = {
         latte: "Latte Macchiato",
         wine: "Wijn (glas)",
         prosecco: "Prosecco (glas)",
-        soda: "Frisdrank"
+        soda: "Frisdrank",
+        footerMadeBy: "Gemaakt door",
+        footerYear: "2025"
     },
     en: {
         // FAQ Accordion
@@ -169,7 +171,9 @@ const translations = {
         latte: "Latte Macchiato",
         wine: "Wine (glass)",
         prosecco: "Prosecco (glass)",
-        soda: "Soft Drink"
+        soda: "Soft drink",
+        footerMadeBy: "Made by",
+        footerYear: "2025"
     },
     fr: {
         // FAQ Accordion
@@ -255,7 +259,9 @@ const translations = {
         latte: "Latte Macchiato",
         wine: "Vin (verre)",
         prosecco: "Prosecco (verre)",
-        soda: "Boisson Gazeuse"
+        soda: "Boisson Gazeuse",
+        footerMadeBy: "Créé par",
+        footerYear: "2025"
     }
 };
 
@@ -302,6 +308,13 @@ function setLanguage(lang) {
     if (orderBtn) orderBtn.textContent = t.orderNow;
     if (orderMenuBtn) orderMenuBtn.textContent = t.orderMenu;
     if (printMenuBtn) printMenuBtn.textContent = t.printMenu;
+    
+    // Footer vertalen
+    const footerMadeBy = document.querySelector('#footerMadeBy');
+    const footerYear = document.querySelector('#footerYear');
+    
+    if (footerMadeBy) footerMadeBy.textContent = t.footerMadeBy;
+    if (footerYear) footerYear.textContent = t.footerYear;
     
     // Menu categorieën vertalen
     const startersLabel = document.querySelector('.acc-starters .acc-label');
