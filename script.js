@@ -85,18 +85,34 @@ function setupFaqAccordion() {
                 questions.forEach((q) => {
                     if (q !== question) {
                         q.classList.remove('active');
-                        q.nextElementSibling.style.maxHeight = null;
+                        q.nextElementSibling.style.maxHeight = '0';
                     }
                 });
                 
                 // Toggle current answer
                 question.classList.toggle('active');
                 const answer = question.nextElementSibling;
+                
                 if (question.classList.contains('active')) {
                     answer.style.maxHeight = answer.scrollHeight + 'px';
                 } else {
-                    answer.style.maxHeight = null;
+                    answer.style.maxHeight = '0';
                 }
+                
+                // Keep updating container height during animation for smooth resize
+                let frames = 0;
+                const updateContainer = () => {
+                    frames++;
+                    // Add 10px padding to ensure nothing gets cut off
+                    container.style.maxHeight = (container.scrollHeight + 10) + 'px';
+                    
+                    // Continue updating for longer duration to catch all animation
+                    if (frames < 15) {
+                        requestAnimationFrame(updateContainer);
+                    }
+                };
+                
+                requestAnimationFrame(updateContainer);
             });
         });
     });
