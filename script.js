@@ -64,7 +64,9 @@ function setupFaqAccordion() {
             // Toggle current category
             category.classList.toggle('active');
             if (category.classList.contains('active')) {
-                answerContainers[catIndex].style.maxHeight = answerContainers[catIndex].scrollHeight + 'px';
+                setTimeout(() => {
+                    answerContainers[catIndex].style.maxHeight = answerContainers[catIndex].scrollHeight + 'px';
+                }, 10);
             } else {
                 answerContainers[catIndex].style.maxHeight = null;
             }
