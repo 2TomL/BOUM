@@ -1,107 +1,107 @@
 # BOUM Baguette
 
-Een moderne café & brasserie website gebouwd met HTML, CSS en JavaScript.
+A modern café & brasserie website built with HTML, CSS and JavaScript.
 
-## 📋 Over BOUM Baguette
+## 📋 About BOUM Baguette
 
-BOUM Baguette is een professionele website voor een moderne café en brasserie. De site biedt volledige informatie over het menu, openingstijden, contactgegevens en veel meer.
+BOUM Baguette is a professional website for a modern café and brasserie. The site provides complete information about the menu, opening hours, contact details and much more.
 
-**Locatie:** Demerstraat 15, 3290 Diest  
-**Openingstijden:** Woensdag - Zaterdag, 11:00 - 16:00 uur  
-**Telefoon:** +32 12 34 56 78
+**Location:** Demerstraat 15, 3290 Diest  
+**Opening Hours:** Wednesday - Saturday, 11:00 - 16:00  
+**Phone:** +32 12 34 56 78
 
 ---
 
 ## ✨ Features
 
-### 🌍 Meertaligheid
-- **Nederlands (NL)** - Standaard taal
-- **Engels (EN)** - Volledig vertaald
-- **Frans (FR)** - Volledig vertaald
-- Taal-selectie via dropdown in navigatie
+### 🌍 Multi-Language Support
+- **Dutch (NL)** - Default language
+- **English (EN)** - Fully translated
+- **French (FR)** - Fully translated
+- Language selection via dropdown in navigation
 
-### 📖 Secties
+### 📖 Sections
 
 #### Home
-- Hero-sectie met welkomstbericht
-- Call-to-action "Bestel nu" knop
+- Hero section with welcome message
+- "Order Now" call-to-action button
 
 #### Menu
-- **Starters:** Olijven, Italiaanse Ham, Kaas Plankje, Soep van de Dag
-- **Sandwiches:** Club Sandwich, Croque Monsieur, Baguette Ham & Kaas, Panini Italië
-- **Bij de Koffie:** Tiramisu, Brownie, Appeltaart, Chocolade Mousse
-- **Drinks:** Espresso, Cappuccino, Latte Macchiato, Wijn, Prosecco, Frisdrank
-- Uitklapbaar accordion-systeem per categorie
-- Print Menu functie
-- Bestel-knop
+- **Starters:** Olives, Italian Ham, Cheese Board, Soup of the Day
+- **Sandwiches:** Club Sandwich, Croque Monsieur, Ham & Cheese Baguette, Italian Panini
+- **With Coffee:** Tiramisu, Brownie, Apple Pie, Chocolate Mousse
+- **Drinks:** Espresso, Cappuccino, Latte Macchiato, Wine, Prosecco, Soft Drink
+- Expandable accordion system per category
+- Print Menu function
+- Order button
 
 #### About
-- Informatie over de website
+- Information about the website
 
 #### FAQ
-- Uitgebreide veelgestelde vragen in 4 categorieën:
-  - 🥪 **Bestellen** - Bestellingsproces
-  - ⏰ **Afhalen & Levering** - Pickup- en leveringsopties
-  - 🧾 **Betaling** - Betaalmethoden
-  - 🌱 **Allergieën & Dieetwensen** - Speciale dieetwensen
+- Comprehensive frequently asked questions in 4 categories:
+  - 🥪 **Ordering** - Ordering process
+  - ⏰ **Pickup & Delivery** - Pickup and delivery options
+  - 🧾 **Payment** - Payment methods
+  - 🌱 **Allergies & Dietary Wishes** - Special dietary requirements
 
 #### Contact
-- Twee informatiekaders:
-  - **Adresinformatie:** Naam, openingstijden, adres, telefoon
-  - **Contactformulier:** Formulier voor berichten/vragen
-  - Geïntegreerde Google Maps locatiekaart
+- Two information cards:
+  - **Address Information:** Name, opening hours, address, phone number
+  - **Contact Form:** Form for messages/inquiries
+  - Integrated Google Maps location map
 
 #### Footer
-- Creditleijn: "Gemaakt door Tom Lamers 2025"
-- Tom Lamers-link naar portfolio
+- Credit line: "Made by Tom Lamers 2025"
+- Tom Lamers link to portfolio
 
-### 🎯 Interactieve Elementen
+### 🎯 Interactive Elements
 
 #### Menu Accordion
-- Uitklapbare menu-categorieën
-- Vloeiende animaties
+- Expandable menu categories
+- Smooth animations
 - Responsive layout
 
 #### FAQ Accordion
-- Categorieën uitklappen
-- Individuele vragen expanderen
-- Intuïtieve UI
+- Expandable categories
+- Individual questions expand
+- Intuitive UI
 
-#### Contactformulier
-- Velden: Naam, E-mail, Bericht
-- Validatie
-- Succesmeldingen
-- Vertalingen ondersteund
+#### Contact Form
+- Fields: Name, Email, Message
+- Validation
+- Success messages
+- Translations supported
 
 #### Hamburger Menu
-- Mobiele navigatie
-- Responsive toggle-functie
+- Mobile navigation
+- Responsive toggle function
 
 ### 📱 Responsive Design
-- Desktop-optimalisatie
-- Tablet-weergave
-- Mobiele weergave
-- Hamburger menu voor kleine schermen
+- Desktop optimization
+- Tablet view
+- Mobile view
+- Hamburger menu for small screens
 
 ### 🎨 Styling
-- Moderne, schone interface
-- Professioneel kleurenschema
-- Smooth animaties en transities
-- Google Fonts integratie
-- Hover-effecten op interactieve elementen
+- Modern, clean interface
+- Professional color scheme
+- Smooth animations and transitions
+- Google Fonts integration
+- Hover effects on interactive elements
 
 ---
 
-## 📁 Projectstructuur
+## 📁 Project Structure
 
 ```
 BOUM/
-├── index.html           # Hoofdpagina met alle secties
-├── style.css            # Alle styling en responsive design
-├── script.js            # Interactiviteit (menu, formulier, accordion)
-├── translations.js      # Meertalige vertalingen
-├── README.md            # Dit bestand
-└── asstes/              # Afbeeldingen
+├── index.html           # Main page with all sections
+├── style.css            # All styling and responsive design
+├── script.js            # Interactivity (menu, form, accordion)
+├── translations.js      # Multi-language translations
+├── README.md            # This file
+└── asstes/              # Images
     ├── home_bg.jpg
     ├── starters.jpg
     ├── main.jpg
@@ -112,63 +112,63 @@ BOUM/
 
 ---
 
-## 🛠️ Technische Details
+## 🛠️ Technical Details
 
-### Gebruikte Technologieën
-- **HTML5** - Semantische markup
+### Technologies Used
+- **HTML5** - Semantic markup
 - **CSS3** - Styling, flexbox, grid, media queries
-- **Vanilla JavaScript** - Geen frameworks nodig
-- **Google Maps API** - Locatiekaart
+- **Vanilla JavaScript** - No frameworks needed
+- **Google Maps API** - Location map
 
-### Besturingselementen
+### Control Functions
 
-#### JavaScript Functies
-- `setLanguage(lang)` - Taalwissel
-- `renderFaqAccordion(lang)` - FAQ dynamisch renderen
-- `setupFaqAccordion()` - FAQ interactiviteit
-- Formuliervalidatie en verzending
+#### JavaScript Functions
+- `setLanguage(lang)` - Language switching
+- `renderFaqAccordion(lang)` - FAQ dynamic rendering
+- `setupFaqAccordion()` - FAQ interactivity
+- Form validation and submission
 
 #### CSS Classes
-- `.contact-flex` - Contact kaders layout
+- `.contact-flex` - Contact cards layout
 - `.simple-accordion` - Menu accordion
 - `.faq-accordion-wrapper` - FAQ wrapper
-- Responsive breakpoints op 900px
+- Responsive breakpoints at 900px
 
 ---
 
-## 🌐 Taalondersteuning
+## 🌐 Language Support
 
-Alle volgende elementen worden automatisch vertaald:
+All of the following elements are automatically translated:
 
-### Navigatie & Secties
-- Menu items en labels
+### Navigation & Sections
+- Menu items and labels
 - Form labels
-- Buttons (Bestel, Verstuur, etc.)
-- Contact informatie (Adres, Telefoon)
-- FAQ categorieën en vragen
+- Buttons (Order, Send, etc.)
+- Contact information (Address, Phone)
+- FAQ categories and questions
 
-### Ondersteunde Talen
-| Taal | Code |
-|------|------|
-| Nederlands | nl |
-| Engels | en |
-| Frans | fr |
+### Supported Languages
+| Language | Code |
+|----------|------|
+| Dutch | nl |
+| English | en |
+| French | fr |
 
 ---
 
-## 📞 Contact Informatie
+## 📞 Contact Information
 
 **BOUM baguette**  
 Demerstraat 15  
 3290 Diest  
 Belgium
 
-Telefoon: [+32 12 34 56 78](tel:+3212345678)  
-Openingstijden: Woensdag - Zaterdag, 11:00 - 16:00 uur
+Phone: [+32 12 34 56 78](tel:+3212345678)  
+Opening Hours: Wednesday - Saturday, 11:00 - 16:00
 
 ---
 
-## 👨‍💻 Gemaakt door
+## 👨‍💻 Made by
 
 **Tom Lamers** 2025
 
@@ -176,18 +176,18 @@ Portfolio: https://2toml.github.io/TL_Final/
 
 ---
 
-## 📄 Licentie
+## 📄 License
 
-Dit project is eigendom van BOUM baguette. Alle rechten voorbehouden.
+This project is owned by BOUM baguette. All rights reserved.
 
 ---
 
-## 🚀 Versiegeschiedenis
+## 🚀 Version History
 
 ### v1.0 (December 2025)
-- Initiële launch
-- Volledige meertalige ondersteuning
+- Initial launch
+- Complete multi-language support
 - Responsive design
-- Menu en FAQ systeem
-- Contactformulier
-- Footer met credits
+- Menu and FAQ system
+- Contact form
+- Footer with credits
