@@ -515,8 +515,8 @@ main {
     background: rgba(0,0,0,0.3);
     padding: 0.3em 0.8em;
     border-radius: 2px;
-    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
 
 .acc-label::before,
