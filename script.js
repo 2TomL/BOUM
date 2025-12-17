@@ -1,11 +1,95 @@
+// FAQ Accordion logic (dynamic, multi-language)
+function renderFaqAccordion(lang) {
+    const faqData = window.translations[lang]?.faqAccordion;
+    if (!faqData) return;
+    const faqOrder = ['bestellen', 'afhalen', 'betaling', 'allergie'];
+    const faqAccordion = document.getElementById('faqAccordion');
+    if (!faqAccordion) return;
+    let html = '';
+    faqOrder.forEach(key => {
+        const cat = faqData[key];
+        if (!cat) return;
+            let cleanTitle = cat.category.replace(/^([\uD800-\uDBFF][\uDC00-\uDFFF]|[^\w\s])\s*/, '');
+            html += `<div class="faq-group">
+                <button class="faq-category">${cleanTitle}</button>
+                <div class="faq-group-content">
+                    <button class="faq-question">${cat.q1}</button>
+                    <div class="faq-answercont"><div class="faq-answer">${cat.a1}</div></div>
+                    ${cat.q2 ? `<button class="faq-question">${cat.q2}</button><div class="faq-answercont"><div class="faq-answer">${cat.a2}</div></div>` : ''}
+                    ${cat.q3 ? `<button class="faq-question">${cat.q3}</button><div class="faq-answercont"><div class="faq-answer">${cat.a3}</div></div>` : ''}
+                    ${cat.q4 ? `<button class="faq-question">${cat.q4}</button><div class="faq-answercont"><div class="faq-answer">${cat.a4}</div></div>` : ''}
+                </div>
+            </div>`;
+    });
+    faqAccordion.innerHTML = html;
+    setupFaqAccordion();
+}
+
+function setupFaqAccordion() {
+    // Category (section) accordion
+    const faqCategories = document.querySelectorAll('.faq-category');
+    const faqGroups = document.querySelectorAll('.faq-group-content');
+    faqCategories.forEach(cat => cat.classList.remove('active'));
+    faqGroups.forEach(g => g.style.maxHeight = null);
+    faqCategories.forEach((catBtn, idx) => {
+        catBtn.addEventListener('click', function () {
+            faqCategories.forEach((b, i) => {
+                if (b !== catBtn) {
+                    b.classList.remove('active');
+                    if (faqGroups[i]) faqGroups[i].style.maxHeight = null;
+                }
+            });
+            catBtn.classList.toggle('active');
+            if (faqGroups[idx]) {
+                if (catBtn.classList.contains('active')) {
+                    faqGroups[idx].style.maxHeight = faqGroups[idx].scrollHeight + 'px';
+                } else {
+                    faqGroups[idx].style.maxHeight = null;
+                }
+            }
+        });
+    });
+    // Question accordion (inside open section only)
+    const allFaqGroups = document.querySelectorAll('.faq-group-content');
+    allFaqGroups.forEach(group => {
+        const questions = group.querySelectorAll('.faq-question');
+        const answers = group.querySelectorAll('.faq-answercont');
+        if (questions.length && answers.length) {
+            questions.forEach((btn, i) => {
+                btn.classList.remove('active');
+                answers[i].style.maxHeight = null;
+                btn.addEventListener('click', function () {
+                    questions.forEach((b, j) => {
+                        if (b !== btn) {
+                            b.classList.remove('active');
+                            answers[j].style.maxHeight = null;
+                        }
+                    });
+                    btn.classList.toggle('active');
+                    if (btn.classList.contains('active')) {
+                        answers[i].style.maxHeight = answers[i].scrollHeight + 'px';
+                        setTimeout(() => {
+                            group.style.maxHeight = group.scrollHeight + 'px';
+                        }, 10);
+                    } else {
+                        answers[i].style.maxHeight = null;
+                        setTimeout(() => {
+                            group.style.maxHeight = group.scrollHeight + 'px';
+                        }, 10);
+                    }
+                });
+            });
+        }
+    });
+// Menu Accordion logic
+
 // Initial render
 document.addEventListener('DOMContentLoaded', function () {
     const langSelect = document.getElementById('languageSelect');
     if (langSelect) {
         langSelect.addEventListener('change', function () {
-            setLanguage(this.value);
+            setLanguage(langSelect.value);
         });
-        setLanguage('nl');
     }
 });
 // Scroll-zoom effect voor home-sectie (vloeiend)
@@ -34,10 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (langSelect) {
         langSelect.addEventListener('change', function() {
             setLanguage(this.value);
-            renderFaqAccordion(this.value);
         });
         setLanguage('nl');
-        renderFaqAccordion('nl');
     }
     
     // Hamburger menu functionaliteit
