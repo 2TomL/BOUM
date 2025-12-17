@@ -91,7 +91,8 @@ const translations = {
         openingHours: "woe-zat 11-16u",
         address: "Adres",
         addressValue: "Demerstraat 15, 3290 Diest",
-        phone: "Telefoon"
+        phone: "Telefoon",
+        followUs: "Volg ons op:"
     },
     en: {
         // FAQ Accordion
@@ -185,7 +186,8 @@ const translations = {
         openingHours: "Wed-Sat 11-16",
         address: "Address",
         addressValue: "Demerstraat 15, 3290 Diest",
-        phone: "Phone"
+        phone: "Phone",
+        followUs: "Follow us on:"
     },
     fr: {
         // FAQ Accordion
@@ -279,7 +281,8 @@ const translations = {
         openingHours: "mer-sam 11-16",
         address: "Adresse",
         addressValue: "Demerstraat 15, 3290 Diest",
-        phone: "Téléphone"
+        phone: "Téléphone",
+        followUs: "Nous suivre sur:"
     }
 };
 
