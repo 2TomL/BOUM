@@ -85,7 +85,13 @@ const translations = {
         prosecco: "Prosecco (glas)",
         soda: "Frisdrank",
         footerMadeBy: "Gemaakt door",
-        footerYear: "2025"
+        footerYear: "2025",
+        // Contact kaders
+        boumName: "BOUM baguette",
+        openingHours: "woe-zat 11-16u",
+        address: "Adres",
+        addressValue: "Demerstraat 15, 3290 Diest",
+        phone: "Telefoon"
     },
     en: {
         // FAQ Accordion
@@ -173,7 +179,13 @@ const translations = {
         prosecco: "Prosecco (glass)",
         soda: "Soft drink",
         footerMadeBy: "Made by",
-        footerYear: "2025"
+        footerYear: "2025",
+        // Contact cards
+        boumName: "BOUM baguette",
+        openingHours: "Wed-Sat 11-16",
+        address: "Address",
+        addressValue: "Demerstraat 15, 3290 Diest",
+        phone: "Phone"
     },
     fr: {
         // FAQ Accordion
@@ -261,7 +273,13 @@ const translations = {
         prosecco: "Prosecco (verre)",
         soda: "Boisson Gazeuse",
         footerMadeBy: "Créé par",
-        footerYear: "2025"
+        footerYear: "2025",
+        // Contact cartes
+        boumName: "BOUM baguette",
+        openingHours: "mer-sam 11-16",
+        address: "Adresse",
+        addressValue: "Demerstraat 15, 3290 Diest",
+        phone: "Téléphone"
     }
 };
 
@@ -315,6 +333,15 @@ function setLanguage(lang) {
     
     if (footerMadeBy) footerMadeBy.textContent = t.footerMadeBy;
     if (footerYear) footerYear.textContent = t.footerYear;
+    
+    // Alle elementen met data-translate vertalen
+    const translateElements = document.querySelectorAll('[data-translate]');
+    translateElements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (t[key]) {
+            element.textContent = t[key];
+        }
+    });
     
     // Menu categorieën vertalen
     const startersLabel = document.querySelector('.acc-starters .acc-label');
