@@ -49,38 +49,6 @@ function setupFaqAccordion() {
             }
         });
     });
-    // Question accordion (inside open section only)
-    const allFaqGroups = document.querySelectorAll('.faq-group-content');
-    allFaqGroups.forEach(group => {
-        const questions = group.querySelectorAll('.faq-question');
-        const answers = group.querySelectorAll('.faq-answercont');
-        if (questions.length && answers.length) {
-            questions.forEach((btn, i) => {
-                btn.classList.remove('active');
-                answers[i].style.maxHeight = null;
-                btn.addEventListener('click', function () {
-                    questions.forEach((b, j) => {
-                        if (b !== btn) {
-                            b.classList.remove('active');
-                            answers[j].style.maxHeight = null;
-                        }
-                    });
-                    btn.classList.toggle('active');
-                    if (btn.classList.contains('active')) {
-                        answers[i].style.maxHeight = answers[i].scrollHeight + 'px';
-                        setTimeout(() => {
-                            group.style.maxHeight = group.scrollHeight + 'px';
-                        }, 10);
-                    } else {
-                        answers[i].style.maxHeight = null;
-                        setTimeout(() => {
-                            group.style.maxHeight = group.scrollHeight + 'px';
-                        }, 10);
-                    }
-                });
-            });
-        }
-    });
 }
 
 // Initial render
